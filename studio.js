@@ -2,10 +2,10 @@ const themeButton = document.querySelector(".theme");
 function setTheme(dark) {
   document.documentElement.dataset.theme = dark ? "dark" : "light";
   themeButton.setAttribute("aria-pressed", String(dark));
-  document.querySelector('meta[name="theme-color"]').content = dark ? "#181b20" : "#f6f5ee";
+  document.querySelector('meta[name="theme-color"]').content = dark ? "#101314" : "#f1f3ec";
 }
-let dark = false;
-try { dark = localStorage.getItem("mm-theme") === "dark"; } catch {}
+let dark = true;
+try { dark = localStorage.getItem("mm-theme") !== "light"; } catch {}
 setTheme(dark);
 themeButton.hidden = false;
 themeButton.addEventListener("click", () => {
@@ -68,3 +68,10 @@ function animateRole() {
 }
 motion.addEventListener("change", animateRole);
 animateRole();
+
+const service = document.querySelector(".instrument select");
+service.addEventListener("change", () => {
+  for (const signal of document.querySelectorAll(".signal")) {
+    signal.hidden = signal.dataset.service !== service.value;
+  }
+});
