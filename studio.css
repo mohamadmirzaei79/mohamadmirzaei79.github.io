@@ -2,3 +2,25 @@
 #typing::after{content:"";display:inline-block;width:.32em;height:.85em;background:currentColor;margin-left:.15em;animation:cursor 1s step-end infinite}
 @keyframes cursor{50%{opacity:0}}
 @media(prefers-reduced-motion:reduce){#typing::after{display:none}}
+
+/* Editorial portfolio layout based on the Stitch concept. */
+:root { --bg:#f3f6fa; --surface:#fff; --ink:#14243a; --muted:#465c73; --rule:#cdd8e5; --accent:#25528a; --mint:#28587c; --sub:#e4edf6; }
+html[data-theme=dark] { --bg:#111827; --surface:#192333; --ink:#eff5ff; --muted:#b2c2d5; --rule:#34445d; --accent:#a8c9fb; --on:#12233e; --mint:#b1d0ea; --sub:#223044; }
+.hero { grid-template-columns:1.45fr .8fr; gap:clamp(24px,6vw,104px); padding-block:clamp(45px,8vw,115px); align-items:center; }
+.hero h1 { font-size:clamp(44px,6.3vw,92px); max-width:10ch; font-weight:750; line-height:.99; letter-spacing:-.069em; }
+.hero .status { color:var(--muted); margin-bottom:20px; }
+.hero .role { margin-top:21px; color:var(--accent); }
+.portrait-sheet { margin:0; background:var(--surface); border:1px solid var(--rule); padding:10px; box-shadow:14px 14px 0 var(--sub); }
+.portrait-sheet img { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 43%; }
+.portrait-sheet figcaption { display:grid; gap:4px; padding:13px 8px 5px; font-size:13px; }
+.portrait-sheet figcaption strong { color:var(--ink); font-size:17px; }
+.portrait-sheet figcaption span,.telemetry-feature p { color:var(--muted); }
+.work .grid { gap:16px; }
+.telemetry-feature { display:grid; grid-template-columns:.72fr 1.28fr; gap:clamp(22px,5vw,72px); padding-block:50px; align-items:start; }
+.telemetry-feature p { margin-top:10px; max-width:34ch; }
+.instrument { background:radial-gradient(ellipse at 58% 50%,#263d60,#162437 58%,#111b2a); border-color:#50698a; color:#eef6ff; }
+@media(max-width:680px) {
+  .hero,.telemetry-feature { display:grid; grid-template-columns:1fr; }
+  .hero { gap:23px; }
+  .portrait-sheet { width:min(100%,360px); box-shadow:7px 7px 0 var(--sub); }
+}
