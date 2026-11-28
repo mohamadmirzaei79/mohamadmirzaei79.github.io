@@ -70,7 +70,7 @@
       <span class="anchor" id="work"></span>
       <div class="section-head"><h2>Selected work</h2><p>Explore a workflow, its implementation and the decisions behind it.</p></div>
       <div class="project-grid">
-      <article class="case lead-case">
+      <article class="case">
         <div class="case-copy">
           <p class="eyebrow">ERP &amp; Conversational AI</p>
           <h3>SupplyNote</h3>
@@ -141,6 +141,30 @@
           <div class="technical-panel"><h4>Checkout API · sample p95</h4><div class="comparison"><span>225 ms <small>Before</small></span><span aria-hidden="true">→</span><span>374 ms <small>After</small></span></div></div>
         </div>
         <ul class="tags" aria-label="ReleaseScope technologies"><li>Python</li><li>FastAPI</li><li>HTTP metrics</li><li>Docker</li></ul>
+      </article>
+      <article class="case">
+        <div class="case-copy">
+          <p class="eyebrow">ERPNext purchasing</p>
+          <h3>LedgerGate</h3>
+          <p>Review a purchase order against its company’s spend limit, request changes, and trace the final decision.</p>
+          <details class="case-details">
+            <summary>Read the architecture</summary>
+            <dl class="breakdown">
+            <div><dt>Frappe Desk</dt><dd>A searchable order register leads to a dedicated review page with line items and decision history.</dd></div>
+            <div><dt>Spend controls</dt><dd>Company settings define the approval limit. A Purchase Order hook checks for a valid approval at submission.</dd></div>
+            <div><dt>Audit trail</dt><dd>A custom DocType records reviewer decisions and notes. Editing reviewed order details requires a new approval.</dd></div>
+            </dl>
+          </details>
+          <div class="actions">
+            <a class="button primary" href="https://mohamadmirzaei79.github.io/LedgerGate/">Live demo ↗</a>
+            <a class="button" href="https://github.com/mohamadmirzaei79/LedgerGate">Source code ↗</a>
+          </div>
+        </div>
+        <div class="case-visual">
+          <a href="https://mohamadmirzaei79.github.io/LedgerGate/" aria-label="Open the LedgerGate demo"><img src="./ledgergate.png" alt="Stitch design preview of the LedgerGate purchase docket" width="1440" height="930" loading="lazy"></a>
+          <div class="technical-panel"><h4>Purchase approval · sample workflow</h4><ol class="pipeline"><li>Inspect the order</li><li>Record a decision</li><li>Check the audit log</li></ol></div>
+        </div>
+        <ul class="tags" aria-label="LedgerGate technologies"><li>ERPNext v15</li><li>Frappe</li><li>Python</li><li>JavaScript</li></ul>
       </article>
       </div>
     </div>
