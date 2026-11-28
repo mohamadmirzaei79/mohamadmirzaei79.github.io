@@ -3,10 +3,10 @@ function setTheme(value) {
   const dark = value === "dark";
   document.documentElement.dataset.theme = value;
   theme.setAttribute("aria-pressed", String(dark));
-  document.querySelector('meta[name="theme-color"]').content = dark ? "#111a28" : "#f4f7fb";
+  document.querySelector('meta[name="theme-color"]').content = dark ? "#0d1420" : "#f6f3ec";
 }
-let preference = "light";
-try { if (localStorage.getItem("mm-theme") === "dark") preference = "dark"; } catch {}
+let preference = "dark";
+try { if (localStorage.getItem("mm-theme") === "light") preference = "light"; } catch {}
 setTheme(preference);
 theme.hidden = false;
 theme.addEventListener("click", () => {

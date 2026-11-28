@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f7fb">
+  <meta name="theme-color" content="#0d1420">
   <meta name="description" content="Mohamad Mirzaei, Python backend and DevOps engineer. Explore architecture case studies, release telemetry, and engineering experience.">
   <title>Mohamad Mirzaei | Backend &amp; DevOps Engineer</title>
   <link rel="icon" href="./mark.svg">
   <link rel="stylesheet" href="./studio.css?v=stitch2">
-  <script src="./studio.js?v=stitch2" defer></script>
+  <link rel="stylesheet" href="./modern.css?v=stitch3">
+  <script src="./studio.js?v=stitch3" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -28,6 +29,7 @@
       <a href="https://www.linkedin.com/in/mohammad-mirzaei-3802b724a" aria-label="LinkedIn">LI</a>
       <a href="mailto:mirzaeim.mo@gmail.com" aria-label="Email">Email</a>
     </div>
+    <a class="header-cv" href="./Mohamad_Mirzaei_Resume_EN.pdf" download>Resume PDF <span aria-hidden="true">↓</span></a>
     <button class="theme" type="button" aria-label="Dark theme" aria-pressed="false" hidden>◐</button>
   </div>
 </header>
@@ -36,7 +38,8 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot"></span> Available for remote work</p>
-        <h1 id="intro">Python services and the infrastructure that runs them.</h1>
+        <h1 id="intro">Mohamad Mirzaei<span>.</span></h1>
+        <p class="hero-role">Python Backend &amp; DevOps Engineer</p>
         <p class="lede">I develop Python APIs and conversational applications, test how they behave across the stack, and deploy and monitor them on Kubernetes.</p>
         <div class="actions">
           <a class="button primary" href="#case-studies">Review case studies <span aria-hidden="true">↓</span></a>
@@ -58,23 +61,28 @@
           <div><dt>Application stack</dt><dd>FastAPI / Chainlit / PostgreSQL</dd></div>
           <div><dt>Deployment</dt><dd>Linux / Docker / GitLab CI/CD</dd></div>
         </dl>
+        <a class="profile-lab" href="#observability-evidence"><span class="lab-wave" aria-hidden="true">∿</span><span><strong>Try the latency lab</strong><small>Cache surge and canary rollout simulations</small></span><span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
   <section class="band" id="case-studies">
     <div class="wrap">
       <span class="anchor" id="work"></span>
-      <div class="section-head"><h2>Architecture case studies</h2><p>Explore a workflow, its implementation and the decisions behind it.</p></div>
-      <article class="case">
+      <div class="section-head"><h2>Selected work</h2><p>Explore a workflow, its implementation and the decisions behind it.</p></div>
+      <div class="project-grid">
+      <article class="case lead-case">
         <div class="case-copy">
           <p class="eyebrow">ERP &amp; Conversational AI</p>
           <h3>SupplyNote</h3>
           <p>Trace a projected shortage from the warehouse register to the sales and purchase orders behind it.</p>
-          <dl class="breakdown">
+          <details class="case-details">
+            <summary>Read the architecture</summary>
+            <dl class="breakdown">
             <div><dt>Inventory projection</dt><dd>Start with on-hand units and apply open orders in date order. The register surfaces parts with a projected shortage.</dd></div>
             <div><dt>Grounded answers</dt><dd>A scikit-learn intent model routes questions to inventory queries. Responses cite the ERP records used to calculate the answer.</dd></div>
             <div><dt>Response traces</dt><dd>Inspect time spent on intent routing and inventory lookups. The Node.js server exposes Prometheus metrics.</dd></div>
-          </dl>
+            </dl>
+          </details>
           <div class="actions">
             <a class="button primary" href="https://mohamadmirzaei79.github.io/SupplyNote/">Live demo ↗</a>
             <a class="button" href="https://github.com/mohamadmirzaei79/SupplyNote">Source code ↗</a>
@@ -91,11 +99,14 @@
           <p class="eyebrow">Incident operations</p>
           <h3>RelayDesk</h3>
           <p>Follow a checkout incident from triage to mitigation and leave a briefing the next operator can act on.</p>
-          <dl class="breakdown">
+          <details class="case-details">
+            <summary>Read the architecture</summary>
+            <dl class="breakdown">
             <div><dt>Operator workflow</dt><dd>The response board groups incidents by stage. Open a card to inspect the timeline and submit an update.</dd></div>
             <div><dt>Write consistency</dt><dd>The Node.js gateway forwards updates to FastAPI. The PostgreSQL transaction saves the incident and its timeline entry together.</dd></div>
             <div><dt>Delivery</dt><dd>The repository includes Docker Compose for local evaluation, Helm manifests and a cross-service integration test.</dd></div>
-          </dl>
+            </dl>
+          </details>
           <div class="actions">
             <a class="button primary" href="https://mohamadmirzaei79.github.io/RelayDesk/">Live demo ↗</a>
             <a class="button" href="https://github.com/mohamadmirzaei79/RelayDesk">Source code ↗</a>
@@ -112,11 +123,14 @@
           <p class="eyebrow">Release observability</p>
           <h3>ReleaseScope</h3>
           <p>Compare the hour before a deployment with the hour after and see which signals triggered a review.</p>
-          <dl class="breakdown">
+          <details class="case-details">
+            <summary>Read the architecture</summary>
+            <dl class="breakdown">
             <div><dt>Window comparison</dt><dd>Compute p95 latency and the HTTP 5xx rate from request-level data in each window.</dd></div>
             <div><dt>Explainable review rules</dt><dd>Flag a release when p95 rises by more than 25% or the 5xx rate rises by more than 0.5 percentage points.</dd></div>
             <div><dt>Reproducible examples</dt><dd>The Python analysis engine supplies both the FastAPI endpoint and the seeded sample reports in the browser demo.</dd></div>
-          </dl>
+            </dl>
+          </details>
           <div class="actions">
             <a class="button primary" href="https://mohamadmirzaei79.github.io/ReleaseScope/">Live demo ↗</a>
             <a class="button" href="https://github.com/mohamadmirzaei79/ReleaseScope">Source code ↗</a>
@@ -128,12 +142,13 @@
         </div>
         <ul class="tags" aria-label="ReleaseScope technologies"><li>Python</li><li>FastAPI</li><li>HTTP metrics</li><li>Docker</li></ul>
       </article>
+      </div>
     </div>
   </section>
   <section class="band lab" id="observability-evidence">
     <div class="wrap">
       <span class="anchor" id="telemetry"></span>
-      <div class="section-head"><h2>Observability evidence</h2><p>Explore how tail latency, throughput and errors change across three simulated traffic scenarios.</p></div>
+      <div class="section-head"><h2>Observability lab</h2><p>Explore how tail latency, throughput and errors change across three simulated traffic scenarios.</p></div>
       <div class="lab-frame">
         <div class="lab-head"><div><p class="eyebrow">Simulated request data</p><h3>Latency &amp; throughput profile</h3></div><label for="metric">Metric <select id="metric"><option value="p99">p99 latency</option><option value="rps">Throughput</option><option value="errors">HTTP 5xx rate</option></select></label></div>
         <div class="lab-selection" role="group" aria-label="Traffic scenario">
